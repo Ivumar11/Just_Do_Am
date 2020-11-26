@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/todayFragment">
+
+    <fragment
+        android:id="@+id/todayFragment"
+        android:name="com.example.justdoam.TodayFragment"
+        android:label="Today's List">
+        <action
+            android:id="@+id/action_todayFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.justdoam.TaskFragment"
+        android:label="To do">
+
+        <argument
+            android:name="taskID"
+            android:defaultValue="@null"
+            app:argType="java.util.UUID"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_taskFragment_to_todayFragment"
+            app:destination="@id/todayFragment" />
+    </fragment>
+</navigation>
